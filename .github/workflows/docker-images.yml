@@ -12,4 +12,6 @@ jobs:
     steps:
     - uses: actions/checkout@v3
     - name: Build the Docker images
-      run: docker-compose build 
+      run: docker-compose build
+    - name: Smoke test 
+      run: curl localhost:80 
