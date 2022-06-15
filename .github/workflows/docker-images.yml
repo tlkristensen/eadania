@@ -15,7 +15,8 @@ jobs:
       run: docker-compose build
     - name: Run semgrep
       uses: returntocorp/semgrep-action@v1
-      
+      env:
+          SEMGREP_APP_TOKEN: ${{ secrets.SEMGREP_APP_TOKEN }}
     - name: Run Trivy vulnerability scanner in repo mode
       uses: aquasecurity/trivy-action@master
       with:
