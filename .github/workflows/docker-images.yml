@@ -16,5 +16,5 @@ jobs:
     - name: Start Docker-Compose
       run: docker-compose up -d
     - name: Smoke test 
-      run: curl localhost:80 
+      run: curl localhost:80 && curl web1:80 && curl localhost:4000
 
