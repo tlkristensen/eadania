@@ -23,12 +23,12 @@ jobs:
         scan-type: 'fs'
         ignore-unfixed: true
         format: 'sarif'
-        output: 'trivy-results.sarif'
+        output: 'repo-trivy-results.sarif'
         severity: 'CRITICAL'
     - name: Upload Trivy scan results to GitHub Security tab
       uses: github/codeql-action/upload-sarif@v1
       with:
-        sarif_file: 'trivy-results.sarif'      
+        sarif_file: 'repo-trivy-results.sarif'      
     - name: Run Trivy vulnerability scanner in IaC mode
       uses: aquasecurity/trivy-action@master
       with:
@@ -36,12 +36,13 @@ jobs:
         hide-progress: false
         format: 'table'
         exit-code: '1'
+        output: 'iac-trivy-results.sarif'
         ignore-unfixed: true
         severity: 'CRITICAL'
     - name: Upload Trivy scan results to GitHub Security tab
       uses: github/codeql-action/upload-sarif@v1
       with:
-        sarif_file: 'trivy-results.sarif'
+        sarif_file: 'iac-trivy-results.sarif'
     - name: Start Docker-Compose
       run: docker-compose up -d
     - name: Sleep for 30 seconds
