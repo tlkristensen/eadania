@@ -15,6 +15,9 @@ jobs:
       run: docker-compose build
     - name: Start Docker-Compose
       run: docker-compose up -d
+    - name: Sleep for 30 seconds
+      run: sleep 30s
+      shell: bash
     - name: Smoke test 1
       run: curl localhost:80 
     - name: Smoke test 2
