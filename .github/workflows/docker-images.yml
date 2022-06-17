@@ -24,7 +24,7 @@ jobs:
         ignore-unfixed: true
         format: 'sarif'
         output: 'repo-trivy-results.sarif'
-        severity: 'CRITICAL, MEDIUM'
+        severity: 'CRITICAL,HIGH'
 
 
     
