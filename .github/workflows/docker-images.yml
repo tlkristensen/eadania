@@ -13,4 +13,9 @@ jobs:
     - uses: actions/checkout@v3
     - name: Build the Docker images
       run: docker-compose build
+    - name: Run semgrep
+      uses: returntocorp/semgrep-action@v1
+      env:
+          SEMGREP_APP_TOKEN: ${{ secrets.SEMGREP_APP_TOKEN }}
+
     
