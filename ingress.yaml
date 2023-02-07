@@ -6,14 +6,10 @@ metadata:
     alb.ingress.kubernetes.io/scheme: internet-facing
     alb.ingress.kubernetes.io/target-type: ip
 spec:
-  ingressClassName: nlb
   rules:
-    - http:
-        paths:
-        - path: /
-          pathType: Prefix
-          backend:
-            service:
-              name: juicer-loadbalancer
-              port:
-                number: 3000
+  - http:
+      paths:
+      - backend:
+          serviceName: juice-balancer
+          servicePort: 3000
+        path: /(.*)
