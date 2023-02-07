@@ -1,7 +1,6 @@
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-  namespace: game-2048
   name: ingress-multi-juicer-service-loadbalancer
   annotations:
     alb.ingress.kubernetes.io/scheme: internet-facing
